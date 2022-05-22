@@ -57,8 +57,8 @@ npm start
 * Add functionality to add data to IndexedDB
 * Test IndexedDB functionality to confirm it works
 * Add functionality to upload stored data after network reconnects
-* Add service worker
-
+* Register, Install, Activate Service Worker
+* Add functionality to intercept Fetch requests offline
 
 ### STEP 3. - ADD WEB MANIFEST
 

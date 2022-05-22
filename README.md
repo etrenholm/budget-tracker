@@ -53,7 +53,10 @@ npm start
 * Installed npm packages.
 
 ### STEP 2. - ADD OFFLINE PERSISTANCE
-* Add offline persistence with IndexedDB
+* Establish connection to IndexedDB
+* Add functionality to add data to IndexedDB
+* Test IndexedDB functionality to confirm it works
+* Add functionality to upload stored data after network reconnects
 * Add service worker
 
 

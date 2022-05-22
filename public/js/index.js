@@ -12,7 +12,7 @@ fetch("/api/transaction")
     populateTotal();
     populateTable();
     populateChart();
-  });
+  })
 
 function populateTotal() {
   // reduce transaction amounts to a single total value
@@ -136,6 +136,7 @@ function sendTransaction(isAdding) {
   })
   .catch(err => {
     // fetch failed, so save in indexed db
+    console.log(err)
     saveRecord(transaction);
 
     // clear form

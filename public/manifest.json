@@ -3,7 +3,7 @@
     "short_name": "My Budget",
     "theme_color": "#ffffff",
     "background_color": "#6768f6",
-    "start_url": "index.html",
+    "start_url": "/",
     "display": "standalone",
     "icons": [
         {

@@ -3,27 +3,24 @@ const VERSION = 'version_01';
 const CACHE_NAME = APP_PREFIX + VERSION;
 
 const FILES_TO_CATCHE = [
+    "/",
     "./index.html",
     "./css/styles.css",
+    "./icons/icon-72x72.png",
+    "./icons/icon-96x96.png",
+    "./icons/icon-128x128.png",
+    "./icons/icon-144x144.png",
+    "./icons/icon-152x152.png",
+    "./icons/icon-192x192.png",
+    "./icons/icon-384x384.png",
+    "./icons/icon-512x512.png",
     "./js/idb.js",
-    "./js/index.js"
+    "./js/index.js",
+    "./manifest.json"
 ]
 
-self.addEventListener('fetch', function (e) {
-    console.log('fetch request : ' + e.request.url)
-    e.respondWith(
-        caches.match(e.request).then(function (request) {
-            if (request) {
-                console.log('responding with cache : ' + e.request.url)
-                return request
-            } else {
-                console.log('file is not cached, fetching : ' + e.request.url)
-                return fetch(e.request)
-            }
-        })
-    )
-})
 
+// Install
 self.addEventListener('install', function (e) {
     e.waitUntil(
         caches.open(CACHE_NAME).then(function (cache) {
@@ -33,6 +30,8 @@ self.addEventListener('install', function (e) {
     )
 })
 
+
+// activate
 self.addEventListener('activate', function (e) {
     e.waitUntil(
         caches.keys().then(function(keyList) {
@@ -50,3 +49,59 @@ self.addEventListener('activate', function (e) {
         })
     )
 })
+
+
+// fetch
+self.addEventListener('fetch', function (e) {
+    console.log('fetch request : ' + e.request.url)
+    if(e.request.url.includes('/api')) {
+        e.respondWith(
+            caches.open(CACHE_NAME).then(function (cache) {
+                return fetch(e.request)
+                .then(response => {
+                    if(response.status === 200) {
+                        cache.put(e.request.url, response.clone())
+                    }
+                    return response
+                })
+                .catch(error => console.log(error))
+            })
+            .catch(error => console.log(error))
+        )
+        return
+    }
+    e.respondWith(
+        caches.match(e.request).then(function (request) {
+            console.log(request)
+            if (request) {
+                console.log('responding with cache : ' + e.request.url)
+                return request
+            } else {
+                console.log('file is not cached, fetching : ' + e.request.url)
+                return fetch(e.request)
+            }
+        })
+    )
+})
+
+// self.addEventListener('fetch', function (e) {
+//     console.log('fetch request : ' + e.request.url)
+//     if(e.request.url.includes('/api')) {
+//         e.respondWith(
+//             caches.open(CACHE_NAME).then(function (cache) {
+//                 return fetch(e.request)
+//                 .then(response => {
+//                     if(response.status === 200) {
+//                         cache.put(e.request.url, response.clone())
+//                     }
+//                     return response
+//                 })
+//                 .catch(error => {
+//                     return cache.match(e.request);
+//                   });
+//             })
+//             .catch(error => console.log(error))
+//         )
+//         return
+//     }
+// })

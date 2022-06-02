@@ -11,7 +11,7 @@
 * [Credit](#credit)
 
 ## Description
-Create a social network application that can handle large amounts of unstructured data about users, thoughts, reactions, and friends by using NoSQL as a database.
+Create an application that can track withdrawals and deposits with or without an internet connection.
 
 ## Installation
 Open the terminal and type the following to install all packages and dependencies:
@@ -43,14 +43,12 @@ npm start
 * MongoDB Atlas
 * Web Manifest
 
-## References
-
 ## Process
 ### STEP 1. - SETUP
-* Cloned starter code and created GitHub Repository with a unique name.
-* Pushed first commit of files into the new Repo using Git.
-* Organized folder and file directory structure.
-* Installed npm packages.
+* Cloned starter code and created GitHub Repository with a unique name
+* Pushed first commit of files into the new Repo using Git
+* Organized folder and file directory structure
+* Installed npm packages
 
 ### STEP 2. - ADD OFFLINE PERSISTANCE
 * Establish connection to IndexedDB
@@ -61,7 +59,9 @@ npm start
 * Add functionality to intercept Fetch requests offline
 
 ### STEP 3. - ADD WEB MANIFEST
-
+* Create a manifest.json file and fill in properties
+* Link to index.html file
+* Run and test in the broswer
 
 ### STEP 4. - FINALIZE
 * Worked through various bugs

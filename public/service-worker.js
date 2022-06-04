@@ -20,7 +20,7 @@ const FILES_TO_CATCHE = [
 ]
 
 
-// Install
+// install
 self.addEventListener('install', function (e) {
     e.waitUntil(
         caches.open(CACHE_NAME).then(function (cache) {
@@ -82,25 +82,3 @@ self.addEventListener('fetch', function (e) {
         })
     )
 })
-
-// self.addEventListener('fetch', function (e) {
-//     console.log('fetch request : ' + e.request.url)
-//     if(e.request.url.includes('/api')) {
-//         e.respondWith(
-//             caches.open(CACHE_NAME).then(function (cache) {
-//                 return fetch(e.request)
-//                 .then(response => {
-//                     if(response.status === 200) {
-//                         cache.put(e.request.url, response.clone())
-//                     }
-//                     return response
-//                 })
-//                 .catch(error => {
-//                     return cache.match(e.request);
-//                });
-//             })
-//             .catch(error => console.log(error))
-//         )
-//         return
-//     }
-// })

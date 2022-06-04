@@ -1,4 +1,4 @@
-# Budget Tracker
+# Spending Tracer
 
 ## Table of contents
 * [Description](#description)
@@ -27,7 +27,7 @@ npm start
 ``` 
 
 ## Technologies
-* HTML/CSS
+* HTML/CSS-
 * VS Code
 * JavaScript
 * Terminal
@@ -39,9 +39,9 @@ npm start
 * Dotenv
 * IndexedDB
 * Service Worker
+* Web Manifest
 * Heroku
 * MongoDB Atlas
-* Web Manifest
 
 ## Process
 ### STEP 1. - SETUP
@@ -70,13 +70,13 @@ npm start
 * Made tweaks and finished README.md
 
 ## Results
-* [Heroku Link]()
-* [GitHub Repository](https://github.com/etrenholm/budget-tracker)
+* [Heroku Link](https://calm-taiga-29410.herokuapp.com/)
+* [GitHub Repository](https://github.com/etrenholm/spending-tracer)
 
 ### Output Example
-![mockup]()
+![mockup](./public/assets/budget-tracker.png)
 
 ## Credit
 Erica Trenholm: https://github.com/etrenholm
 
-### ©️ May 2022
+### ©️ June 2022

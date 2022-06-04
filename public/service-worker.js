@@ -72,7 +72,6 @@ self.addEventListener('fetch', function (e) {
     }
     e.respondWith(
         caches.match(e.request).then(function (request) {
-            console.log(request)
             if (request) {
                 console.log('responding with cache : ' + e.request.url)
                 return request
@@ -98,7 +97,7 @@ self.addEventListener('fetch', function (e) {
 //                 })
 //                 .catch(error => {
 //                     return cache.match(e.request);
-//                   });
+//                });
 //             })
 //             .catch(error => console.log(error))
 //         )
